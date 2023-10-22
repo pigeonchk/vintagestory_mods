@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project SDK="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputPath>$(ProjectDir)../Output</OutputPath>
+    <OutDir>$(OutputPath)/$(ProjectName)/</OutDir>
+
+    <BuildDependsOn>CompileTasks;$(BuildDependsOn)</BuildDependsOn>
+    <TaskDLL>ModInfoAttributes.dll</TaskDLL>
+
+  </PropertyGroup>
+
+  <Target Name="CompileTasks" AfterTargets="GetAssemblyAttributes"
+          BeforeTargets="CreateGeneratedAssemblyInfoInputsCacheFile" >
+    <MSBuild Projects="$(ProjectDir)../ModInfoAttributes/ModInfoAttributes.csproj" />
+  </Target>
+
+  <UsingTask TaskName="ModInfoTask.ModInfoAttributes" AssemblyFile="$(OutputPath)/$(TaskDLL)"/>
+
+  <Target Name="CreateModInfoAttributes"
+          AfterTargets="CompileTasks"
+          DependsOnTargets="CompileTasks" >
+    <Copy SourceFiles="$(VINTAGE_STORY)/VintagestoryAPI.dll" DestinationFolder="$(OutputPath)" />
+    <ModInfoAttributes
+      Name="$(Product)"
+      IconPath="$(IconPath)"
+      Type="$(Type)"
+      ModID="$(ModID)"
+      Version="$(Version)"
+      NetworkVersion="$(NetworkVersion)"
+      Description="$(Description)"
+      Website="$(Website)"
+      Authors="$(Authors)"
+      Contributors="$(Contributors)"
+      Side="$(Side)"
+      RequiredOnClient="$(RequiredOnClient)"
+      RequiredOnServer="$(RequiredOnServer)"
+      ModDependency="@(ModDependency)"
+      OutputPath="$(OutputPath)/$(ProjectName)">
+      <Output TaskParameter="AssemblyAttribute" ItemName="AssemblyAttribute" />
+    </ModInfoAttributes>
+  </Target>
+
+  <Target Name="CopyAssets" BeforeTargets="PackageMod" Condition="Exists('$(ProjectDir)assets')">
+    <Copy SourceFiles="$(ProjectDir)assets" DestinationFolder="$(OutDir)" />
+  </Target>
+
+  <Target Name="PackageMod" AfterTargets="CreateModInfoAttributes" >
+    <MakeDir Directories="$(OutputPath)/Mods" />
+    <Delete Files="$(OutputPath)/Mods/$(TargetName).zip" />
+    <ZipDirectory DestinationFile="$(OutputPath)/Mods/$(TargetName).zip" SourceDirectory="$(OutDir)" Overwrite="true" />
+  </Target>
+</Project>

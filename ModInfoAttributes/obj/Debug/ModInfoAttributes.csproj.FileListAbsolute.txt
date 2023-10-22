@@ -1,0 +1,13 @@
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/bin/Debug/ModInfoAttributes.dll
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/bin/Debug/ModInfoAttributes.pdb
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.csproj.AssemblyReference.cache
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.GeneratedMSBuildEditorConfig.editorconfig
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.AssemblyInfoInputs.cache
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.AssemblyInfo.cs
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.dll
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/refint/ModInfoAttributes.dll
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.pdb
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ref/ModInfoAttributes.dll
+/home/pigeonchk/Projects/vintagestory_mods/Output/ModInfoAttributes.dll
+/home/pigeonchk/Projects/vintagestory_mods/Output/ModInfoAttributes.pdb
+/home/pigeonchk/Projects/vintagestory_mods/ModInfoAttributes/obj/Debug/ModInfoAttributes.csproj.CoreCompileInputs.cache
